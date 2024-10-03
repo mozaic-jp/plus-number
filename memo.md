@@ -22,3 +22,9 @@ dockerで起動できるように作成してある
     docker-compose stop
 ```
 
+
+
+github Ci/CD もできるようにする
+
+workflow 内に作成するymlの参考:
+https://qiita.com/Re_F/items/25ce618c64804ce31a2c

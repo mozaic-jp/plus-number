@@ -11,14 +11,14 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # GitHub のホスティング環境を使用
 
-    services:
-      backend:
-        image: node:20
-        ports:
-          - 5000:5000
-        options: --health-cmd="curl --fail http://localhost:5000 || exit 1" --health-interval=10s --health-retries=3 --health-timeout=5s
+    #services:
+    #  backend:
+    #    image: node:20
+    #    ports:
+    #      - 5000:5000
+    #    options: --health-cmd="curl --fail http://localhost:5000 || exit 1" --health-interval=10s --health-retries=3 --health-timeout=5s
 
     steps:
     - name: Checkout code
