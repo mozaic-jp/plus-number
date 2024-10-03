@@ -1,0 +1,13 @@
+version: '3'
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:80"  # フロントエンドをポート3000で公開
+    depends_on:
+      - backend  # フロントエンドがバックエンドに依存
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"  # バックエンドをポート5000で公開
