@@ -23,8 +23,25 @@ dockerで起動できるように作成してある
 ```
 
 
-
 github Ci/CD もできるようにする
 
 workflow 内に作成するymlの参考:
 https://qiita.com/Re_F/items/25ce618c64804ce31a2c
+
+
+githubActionsは、containerの作成に失敗する
+
+
+npm testをローカルで実行はできるようになった
+
+frontendのテスト
+'''
+    cd plus-number 
+    npm test
+'''
+
+backendのテスト
+'''
+    cd plus-number/backend
+    npm test
+'''

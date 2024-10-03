@@ -13,21 +13,21 @@ jobs:
 
     runs-on: ubuntu-latest # GitHub のホスティング環境を使用
 
-    services:
-      backend:
-        image: nginx
-        ports:
-          - 5000:5000
-        options: --health-cmd="curl --fail http://localhost:5000 || exit 1" --health-interval=10s --health-retries=3 --health-timeout=5s
+#    services:
+#      backend:
+#        image: node
+#        ports:
+#          - 5000:5000
+#        options: --health-cmd="curl --fail http://localhost:5000 || exit 1" --health-interval=10s --health-retries=3 --health-timeout=5s
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.11.1'
+#    - name: Set up Node.js
+#      uses: actions/setup-node@v3
+#      with:
+#        node-version: '20.11.1'
 
     - name: Install frontend dependencies
       working-directory: ./frontend
