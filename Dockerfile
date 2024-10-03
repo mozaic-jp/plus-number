@@ -1,5 +1,5 @@
 # Node.jsのビルドステージ
-FROM node:20 as build
+FROM node:20.11.1 as build
 
 # 作業ディレクトリを作成
 WORKDIR /app
