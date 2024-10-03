@@ -1,0 +1,54 @@
+name: CI/CD for Addition App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    services:
+      backend:
+        image: node:20.11.1
+        ports:
+          - 5000:5000
+        options: --health-cmd="curl --fail http://localhost:5000 || exit 1" --health-interval=10s --health-retries=3 --health-timeout=5s
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.11.1'
+
+    - name: Install frontend dependencies
+      working-directory: ./frontend
+      run: npm install
+
+    - name: Run frontend tests
+      working-directory: ./frontend
+      run: npm test -- --watchAll=false
+
+    - name: Install backend dependencies
+      working-directory: ./backend
+      run: npm install
+
+    - name: Run backend tests
+      working-directory: ./backend
+      run: npm test
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy code to server
+      run: echo "Deployment step - add your deployment scripts here"
