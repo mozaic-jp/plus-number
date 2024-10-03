@@ -15,7 +15,7 @@ jobs:
 
     services:
       backend:
-        image: node
+        image: nginx
         ports:
           - 5000:5000
         options: --health-cmd="curl --fail http://localhost:5000 || exit 1" --health-interval=10s --health-retries=3 --health-timeout=5s
