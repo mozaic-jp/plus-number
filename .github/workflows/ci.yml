@@ -30,11 +30,11 @@ jobs:
 #        node-version: '20.11.1'
 
     - name: Install frontend dependencies
-      working-directory: ./frontend
+      working-directory: ./
       run: npm install
 
     - name: Run frontend tests
-      working-directory: ./frontend
+      working-directory: ./
       run: npm test -- --watchAll=false
 
     - name: Install backend dependencies
