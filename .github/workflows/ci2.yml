@@ -1,0 +1,36 @@
+name: CI/CD FrontEnd Conn Backend
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and tag backend Docker image
+        run: |
+          docker build -t my-backend-image:latest ./backend
+
+      - name: Run backend container
+        run: |
+          docker run -d -p 5000:5000 my-backend-image:latest
+
+      - name: Install frontend dependencies
+        run: npm install
+        working-directory: ./frontend
+
+      - name: Run frontend tests
+        run: npm test
+        working-directory: ./frontend
