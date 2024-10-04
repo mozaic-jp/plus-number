@@ -1,18 +1,20 @@
 name: CI/CD for Addition App
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+# 一時的にコメントアウト
+#on:
+#  push:
+#    branches:
+#      - master
+#  pull_request:
+#    branches:
+#      - master
 
 jobs:
   build:
 
     runs-on: ubuntu-latest # GitHub のホスティング環境を使用
 
+# うまくいかない
 #    services:
 #      backend:
 #        image: node
